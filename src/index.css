@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Luxury black and gold theme */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary color #b16625 */
+    --primary: 28 65% 42%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Darker secondary based on primary */
+    --secondary: 28 60% 18%;
+    --secondary-foreground: 28 30% 88%;
+
+    --muted: 28 25% 16%;
+    --muted-foreground: 28 20% 65%;
+
+    /* Accent matches primary */
+    --accent: 28 65% 42%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 28 35% 24%;
+    --input: 28 25% 16%;
+    --ring: 28 65% 42%;
+
+    --radius: 0.5rem;
+
+    /* Custom luxury tokens - #b16625 palette */
+    --gold: 28 65% 42%;
+    --gold-light: 32 70% 55%;
+    --gold-dark: 24 60% 28%;
+    --silver: 28 12% 72%;
+    --black-soft: 28 20% 10%;
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(28 65% 42%), hsl(32 70% 55%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%), hsl(28 20% 10%));
+    --gradient-deep: linear-gradient(180deg, hsl(28 20% 8%), hsl(0 0% 5%));
+    --gradient-subtle: linear-gradient(180deg, hsl(28 15% 12%), hsl(28 20% 8%));
+    --gradient-radial-dark: radial-gradient(circle at center, hsl(28 20% 10%), hsl(0 0% 5%));
+    
+    /* Shadows */
+    --shadow-gold: 0 10px 40px -10px hsl(28 65% 42% / 0.6);
+    --shadow-elegant: 0 20px 60px -15px hsl(0 0% 0% / 0.8);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  
+  .text-silver {
+    color: hsl(var(--silver));
+  }
+  
+  .bg-gold {
+    background: hsl(var(--gold));
+  }
+  
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+  
+  .gradient-deep {
+    background: var(--gradient-deep);
+  }
+  
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  .gradient-radial-dark {
+    background: var(--gradient-radial-dark);
+  }
+  
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
