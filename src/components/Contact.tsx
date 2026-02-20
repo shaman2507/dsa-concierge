@@ -9,11 +9,14 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyyfmG7yL2wZ2Wr66BYXmDSRdvOuJO0HwG08_vuMxhTaqyV8LNIXd6msySS22BUOmmM/exec";
+
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
   email: z.string().trim().email("Please enter a valid email address").max(255, "Email is too long"),
   phone: z.string().trim().regex(/^(\+?\d[\d\s\-]{6,20})?$/, "Please enter a valid phone number").optional().or(z.literal("")),
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(2000, "Message is too long"),
+  company: z.string().optional(), // honeypot
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -24,11 +27,46 @@ const Contact = () => {
     defaultValues: { name: "", email: "", phone: "", message: "" },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
-    toast.success("Thank you for your inquiry! We'll contact you shortly.", {
-      description: "Our team will respond within 24 hours.",
+  const submitForm = async (values: ContactFormValues) => {
+    const payload = {
+      fullName: values.name,
+      email: values.email,
+      phone: values.phone || "",
+      message: values.message,
+
+      // honeypot
+      company: values.company || "",
+
+      pageUrl: window.location.href,
+      userAgent: navigator.userAgent,
+    };
+
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload),
     });
-    form.reset();
+
+    // Apps Script всегда вернёт JSON
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || "Submit failed");
+    return data;
+  };
+
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      await submitForm(data);
+
+      toast.success("Thank you for your inquiry! We'll contact you shortly.", {
+        description: "Our team will respond within 24 hours.",
+      });
+
+      form.reset();
+    } catch (err: any) {
+      toast.error("Failed to send message", {
+        description: err?.message || "Please try again later.",
+      });
+    }
   };
 
   return (
@@ -135,6 +173,14 @@ const Contact = () => {
                       <FormMessage />
                     </FormItem>
                   )} />
+
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    {...form.register("company")}
+                  />
 
                   <Button type="submit" variant="luxury" size="lg" className="w-full">
                     Submit
