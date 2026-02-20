@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const DEFAULT_SITE_URL = "http://localhost:8080"; // поменяешь позже
+const DEFAULT_SITE_URL = "http://dsa-concierge.com"; 
 
 const getSiteUrl = () => {
   if (typeof window !== "undefined") return window.location.origin;
@@ -18,8 +18,8 @@ const StructuredData = () => {
     description:
       "Premium luxury concierge services in Montenegro offering exclusive access, personalized experiences, and five-star lifestyle management.",
     url: siteUrl,
-    logo: `${siteUrl}/assets/logo.svg`, // убедись что реально существует (public/assets/logo.svg)
-    image: `${siteUrl}/assets/hero-background-new.jpg`, // лучше держать в public/assets
+    logo: `${siteUrl}/assets/logo.svg`,
+    image: `${siteUrl}/assets/hero-background-new.jpg`,
     telephone: "+382 67 726 999",
     address: {
       "@type": "PostalAddress",
@@ -51,7 +51,7 @@ const StructuredData = () => {
       closes: "23:59",
     },
     sameAs: [
-      "https://instagram.com", // замени на реальные ссылки
+      "https://instagram.com",
       "https://facebook.com",
       "https://linkedin.com",
     ],

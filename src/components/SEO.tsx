@@ -14,8 +14,8 @@ const DEFAULT_TITLE =
 const DEFAULT_DESCRIPTION =
   "Experience unparalleled luxury with DSA Concierge. Premium concierge services in Montenegro offering exclusive access and personalized experiences.";
 
-const DEFAULT_IMAGE = "/og-image.jpg"; // положи файл в public/
-const DEFAULT_URL = "http://localhost:8080"; // поменяешь позже
+const DEFAULT_IMAGE = "/og-image.webp"; // положи файл в public/
+const DEFAULT_URL = "http://dsa-concierge.com"; // поменяешь позже
 
 const SEO = ({
   title = DEFAULT_TITLE,
