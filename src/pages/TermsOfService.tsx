@@ -39,7 +39,6 @@ const TermsOfService = () => {
                 <li>Private aviation and airport services</li>
                 <li>Luxury accommodation arrangements</li>
                 <li>Event planning and organization</li>
-                <li>Property management and real estate services</li>
                 <li>Lifestyle management and personal assistance</li>
                 <li>Security and protection services</li>
                 <li>Transportation and transfer services</li>
@@ -161,8 +160,8 @@ const TermsOfService = () => {
               </p>
               <div className="text-muted-foreground space-y-2">
                 <p>DSA Concierge</p>
-                <p>Email: legal@dsaconcierge.com</p>
-                <p>Phone: +382 XX XXX XXX</p>
+                <p>Email: reservation@dsa-concierge.com</p>
+                <p>Phone: +382 67 726 999</p>
                 <p>Address: Montenegro</p>
               </div>
             </section>

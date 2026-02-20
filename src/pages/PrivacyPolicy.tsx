@@ -140,7 +140,7 @@ const PrivacyPolicy = () => {
               </p>
               <div className="mt-4 p-6 bg-card border border-border rounded-lg">
                 <p className="font-semibold text-gold">DSA Concierge</p>
-                <p className="text-muted-foreground">Email: privacy@dsaconcierge.com</p>
+                <p className="text-muted-foreground">Email: reservation@dsa-concierge.com</p>
                 <p className="text-muted-foreground">Montenegro</p>
               </div>
             </section>
