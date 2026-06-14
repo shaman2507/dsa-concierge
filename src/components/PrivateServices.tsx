@@ -27,7 +27,7 @@ const privateServices = [
   },
   {
     image: conciergeImage,
-    title: "24/7 Personal manager",
+    title: "24/7 Personal travel manager",
     shortDescription: "Round-the-clock access to Montenegro's most connected concierge professionals.",
     description:
       "Experience true peace of mind with constant access to Montenegro's most connected concierge professionals. Whether it's arranging an emergency helicopter transfer to Sveti Stefan or booking a private tour of Perast's islands at dawn, our round-the-clock service ensures every moment in Montenegro exceeds your expectations.",
@@ -186,7 +186,7 @@ const PrivateServices = ({ variant = "carousel" }: { variant?: "carousel" | "gri
               onClick={() => navigate("/contact")}
               className="text-lg px-12 py-6 animate-pulse-scale"
             >
-              Book Now
+              Send a request
             </Button>
           </div>
         )}

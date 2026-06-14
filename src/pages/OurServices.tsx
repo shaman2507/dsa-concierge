@@ -252,7 +252,7 @@ const OurServices = () => {
                 onClick={handleBookNow}
                 className="text-lg px-12 py-6 animate-pulse-scale"
               >
-                Book Now
+                Send a request
               </Button>
             </div>
           </div>

@@ -33,21 +33,20 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-1000">
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight">
-            Experience
-            <span className="block text-gold">Unparalleled Luxury</span>
-            in Montenegro
+            Montenegro
+            <span className="block text-gold">Premium Travel</span>
+            Concierge
           </h1>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Your gateway to exclusive experiences, personalized service, and the finest lifestyle management on the
-            Adriatic coast.
+            Experience unparalleled luxury with a private concierge service: villas, yachts, events and 24/7 personal support.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button variant="luxury" size="xl" onClick={() => navigate("/contact")} className="group animate-pulse-scale">
-              Book Now
+              Send a request
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="hero" size="xl" onClick={() => navigate("/services")}>
